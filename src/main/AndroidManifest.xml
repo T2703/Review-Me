@@ -13,7 +13,10 @@
         android:theme="@style/Theme.ReviewMe"
         tools:targetApi="31">
         <activity
-            android:name="profile.MainActivity"
+            android:name="profile.Register"
+            android:exported="false" />
+        <activity
+            android:name="profile.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,8 +26,7 @@
         </activity>
         <activity
             android:name="mainApp.Home"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

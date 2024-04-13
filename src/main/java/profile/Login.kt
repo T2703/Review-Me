@@ -7,14 +7,14 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import com.example.reviewme.R
 import mainApp.Home
 
 /**
  * This is the login page of the app.
- * Please make sure to rename the file.
  */
-class MainActivity : AppCompatActivity() {
+class Login : AppCompatActivity() {
     /**
      * The login button.
      */
@@ -30,18 +30,29 @@ class MainActivity : AppCompatActivity() {
      */
     private lateinit var loginPassword : EditText
 
+    /**
+     * The link for going to the register page.
+     */
+    private lateinit var registerLink : TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
 
         // Defining the variables.
         loginButton = findViewById(R.id.loginButton)
         loginEmail = findViewById(R.id.loginEmail)
         loginPassword = findViewById(R.id.loginPassword)
+        registerLink = findViewById(R.id.registerLink)
 
         // Stuff that does the click listeners and event listeners.
         loginButton.setOnClickListener {
             val intent = Intent(this, Home::class.java)
+            startActivity(intent)
+        }
+
+        registerLink.setOnClickListener {
+            val intent = Intent(this, Register::class.java)
             startActivity(intent)
         }
 
