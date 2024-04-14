@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import com.example.reviewme.R
 import mainApp.Home
+import mainApp.LookUpUsers
 
 /**
  * This is the login page of the app.
@@ -47,7 +48,8 @@ class Login : AppCompatActivity() {
 
         // Stuff that does the click listeners and event listeners.
         loginButton.setOnClickListener {
-            val intent = Intent(this, Home::class.java)
+            //val intent = Intent(this, Home::class.java)
+            val intent = Intent(this, LookUpUsers::class.java) // for testing purposes
             startActivity(intent)
         }
 
