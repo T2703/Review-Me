@@ -30,6 +30,11 @@ class Register : AppCompatActivity() {
      * Input for the user password.
      */
     private lateinit var registerPassword : EditText
+
+    /**
+     * Input for the username.
+     */
+    private lateinit var registerUsername : EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -38,6 +43,7 @@ class Register : AppCompatActivity() {
         registerButton = findViewById(R.id.registerButton)
         registerEmail = findViewById(R.id.registerEmail)
         registerPassword = findViewById(R.id.registerPassword)
+        registerUsername = findViewById(R.id.registerUsername)
 
         // Stuff that does the click listeners and event listeners.
         registerButton.setOnClickListener {
@@ -72,6 +78,20 @@ class Register : AppCompatActivity() {
                 // Not needed
             }
         })
+
+        registerUsername.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                // Not needed
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                checkFieldsForEmptyValues()
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                // Not needed
+            }
+        })
     }
 
     /**
@@ -80,7 +100,8 @@ class Register : AppCompatActivity() {
     private fun checkFieldsForEmptyValues() {
         val userEmailRegister = registerEmail.text.toString()
         val userPasswordRegister = registerPassword.text.toString()
+        val usernameRegister = registerUsername.text.toString()
 
-        registerButton.isEnabled = userEmailRegister.isNotEmpty() && userPasswordRegister.isNotEmpty()
+        registerButton.isEnabled = userEmailRegister.isNotEmpty() && userPasswordRegister.isNotEmpty() && usernameRegister.isNotEmpty()
     }
 }
